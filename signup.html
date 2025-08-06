@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sign Up - Ragash Farms</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="auth-background">
+  <div class="auth-box">
+    <h2>Sign Up</h2>
+    <input type="text" id="name" placeholder="Name" />
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="signUp()">Sign Up</button>
+    <p>Already have an account? <a href="login.html">Login</a></p>
+  </div>
+</div>
+<script>
+function signUp() {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  if (name && email && password) {
+    localStorage.setItem('user', email);
+    localStorage.setItem('name', name);
+    localStorage.setItem('password', password);
+    alert('Registration successful! Please login.');
+    window.location.href = 'login.html';
+  } else {
+    alert('Fill all fields');
+  }
+}
+</script>
+</body>
+</html>

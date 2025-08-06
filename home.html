@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ragash Farms - Home</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+<div id="particles-js"></div>
+<nav class="navbar">
+  <a href="home.html" class="logo">Ragash Farms</a>
+  <ul>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="logout.html" class="btn">Logout</a></li>
+  </ul>
+</nav>
+<script>
+if (!localStorage.getItem('session')) {
+  window.location.href = 'login.html';
+}
+</script>
+<div class="hero-section" style="text-align:center; padding: 50px; color: #fff;">
+  <h1>Welcome to Ragash Farms</h1>
+  <p>Quality Poultry, Fish & Snail Farming</p>
+  <a href="products.html" class="btn">View Our Products</a>
+</div>
+<script>
+particlesJS.load('particles-js', 'particles.json');
+</script>
+</body>
+</html>

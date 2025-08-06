@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Checkout - Ragash Farms</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<nav class="navbar">
+  <a href="home.html" class="logo">Ragash Farms</a>
+  <ul>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="logout.html" class="btn">Logout</a></li>
+  </ul>
+</nav>
+<h2 style="text-align:center;">Checkout</h2>
+<div style="max-width:600px; margin:auto; padding:20px;">
+  <h3>Confirm Your Order</h3>
+  <div id="order-details"></div>
+  <button class="btn" onclick="pay()">Pay Now</button>
+</div>
+<script>
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const orderDiv = document.getElementById('order-details');
+
+  function displayOrder() {
+    if (cart.length === 0) {
+      orderDiv.innerHTML = "<p>Your cart is empty.</p>";
+    } else {
+      let html = '<ul>';
+      cart.forEach(item => {
+        html += `<li>${item.name} - Quantity: ${item.quantity}</li>`;
+      });
+      html += '</ul>';
+      orderDiv.innerHTML = html;
+    }
+  }
+
+  function pay() {
+    alert('Thank you for your purchase!');
+    localStorage.removeItem('cart');
+    window.location.href = 'home.html';
+  }
+
+  displayOrder();
+</script>
+</body>
+</html>
